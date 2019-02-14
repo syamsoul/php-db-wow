@@ -1,2 +1,2 @@
 # Introduction
-This package (syamsoulcc/php-easy-db) will make your life easier in handling MySQL database.
+This package (syamsoulcc/php-db-wow) will make your life easier in handling MySQL database.
