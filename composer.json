@@ -1,6 +1,14 @@
 {
     "name": "syamsoulcc/php-db-wow",
     "description": "This package will make your life easier in handling MySQL database.",
+    "keywords": [
+        "syamsoulcc",
+        "php",
+        "db",
+        "wow",
+        "mysql",
+        "database"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -14,8 +22,8 @@
         "php": ">=5.5.0"
     },
     "autoload": {
-        "psr-0": {
-            "SoulDoit": "src/"
+        "psr-4": {
+            "SoulDoit\\PhpDBWow\\": "src"
         }
     }
 }
