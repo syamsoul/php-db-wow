@@ -64,31 +64,35 @@ $db = new WowDB($hostname, $db_name, $db_username, $db_password);
 
 Which is:
 * `$hostname` is a string of your server hostname, for example:
-  ```php
-  $hostname = 'localhost';
-  
-  // or
-  
-  $hostname = 'mysql.hostinger.my';
-  ```
+    ```php
+    $hostname = 'localhost';
+
+    // or
+
+    $hostname = 'mysql.hostinger.my';
+    ```
 * `$db_name` is a string of your database name, for example:
-   ```php
-   $db_name = 'new_project_db';
-   ```
+    ```php
+    $db_name = 'new_project_db';
+    ```
 * `$db_username` is a string of your MySQL's username, for example:
-  ```php
-  $db_username = 'root';
-  ```
+    ```php
+    $db_username = 'root';
+    ```
 * `$db_password` is a string of your MySQL's password, for example:
- ```php
- $db_password = 'mypassword';
- ```  
+    ```php
+    $db_password = 'mypassword';
+    ```  
   
 &nbsp;
 
 And that's it. Now you have a connection with database. Congrats!
 
-Next step is how to run the sql queries.
+Next step is how to run the sql queries. 
+Just head off to the example section and I'm sure you'll understand.
+
+Enjoy!
+:D
 
 
 &nbsp;
@@ -98,11 +102,12 @@ Next step is how to run the sql queries.
 
 ```php
 // Autoload files using the Composer autoloader.
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use SoulDoit\PhpDBWow\WowDB;
 
 $db = new WowDB('localhost', 'test_blank', 'root', '');
+
 
 // *******
 // INSERT
@@ -121,6 +126,7 @@ else echo "Success! The inserted ID is ".$result;
 
 
 
+
 // *******
 // DELETE
 // *******
@@ -132,6 +138,7 @@ $conditions=Array(
 
 if(!$db->delete($table, $conditions)) echo "Failed";
 else echo "Success! The item is deleted";
+
 
 
 
@@ -150,6 +157,7 @@ $parameters = Array(
 
 if(!$db->update($table, $conditions, $parameters)) echo "Failed"; 
 else echo "Success! The item is updated";
+
 
 
 
@@ -178,6 +186,7 @@ else {
 
 
 
+
 // *******
 // SELECT USING RAW QUERY
 // *******
@@ -194,6 +203,7 @@ else {
     }
     echo "</ol>";
 }
+
 
 
 
