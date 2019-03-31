@@ -18,8 +18,6 @@ This package will make your life easier in handling MySQL database.
 * [Usage & Reference](#usage--reference)
   * [How to use it?](#how-to-use-it)
 * [Example](#example)
-  * [In PHP (Controller)](#in-php-controller)
-  * [In Blade (Views)](#in-blade-views)
 
 
 &nbsp;
