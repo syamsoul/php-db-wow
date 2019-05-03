@@ -4,7 +4,7 @@
 
 
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/syamsoulcc/php-db-wow.svg?style=flat-square)](https://packagist.org/packages/syamsoulcc/php-db-wow)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/syamsoul/php-db-wow.svg?style=flat-square)](https://packagist.org/packages/syamsoul/php-db-wow)
 
 
 
@@ -32,12 +32,12 @@ This package will make your life easier in handling MySQL database.
 ## Installation
 
 
-This package can be used in PHP 5.5 or higher. If you are using an older version of PHP, there's might be some problem. If there's any problem, you can [create new issue](https://github.com/syamsoulcc/php-db-wow/issues) and I will fix it as soon as possible.
+This package can be used in PHP 5.5 or higher. If you are using an older version of PHP, there's might be some problem. If there's any problem, you can [create new issue](https://github.com/syamsoul/php-db-wow/issues) and I will fix it as soon as possible.
 
 You can install the package via composer:
 
 ``` bash
-composer require syamsoulcc/php-db-wow
+composer require syamsoul/php-db-wow
 ```
 
 &nbsp;

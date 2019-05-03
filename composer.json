@@ -1,8 +1,8 @@
 {
-    "name": "syamsoulcc/php-db-wow",
+    "name": "syamsoul/php-db-wow",
     "description": "This package will make your life easier in handling MySQL database.",
     "keywords": [
-        "syamsoulcc",
+        "syamsoulc",
         "php",
         "db",
         "wow",
