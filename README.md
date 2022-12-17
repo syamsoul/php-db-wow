@@ -118,42 +118,34 @@ Which is:
 *  `$hostname` is a string of your server hostname, for example:
 
 ```php
-
 $hostname = 'localhost';
-
-  
 
 // or
 
-  
-
 $hostname = 'mysql.hostinger.my';
-
 ```
+&nbsp;
 
 *  `$db_name` is a string of your database name, for example:
 
 ```php
-
 $db_name = 'new_project_db';
-
 ```
+&nbsp;
 
 *  `$db_username` is a string of your MySQL's username, for example:
 
 ```php
-
 $db_username = 'root';
-
 ```
+&nbsp;
 
 *  `$db_password` is a string of your MySQL's password, for example:
 
 ```php
-
 $db_password = 'mypassword';
-
 ```
+&nbsp;
 
 &nbsp;
 
@@ -161,16 +153,10 @@ $db_password = 'mypassword';
 
 And that's it. Now you have a connection with database. Congrats!
 
-  
-
 Next step is how to run the sql queries.
-
 Just head off to the example section and I'm sure you'll understand.
 
-  
-
 Enjoy!
-
 :D
 
   
@@ -188,211 +174,126 @@ Enjoy!
 ```php
 
 // Autoload files using the Composer autoloader.
-
 require_once  __DIR__  .  '/vendor/autoload.php';
-
-  
 
 use SoulDoit\PhpDBWow\WowDB;
 
-  
-
 $db = new  WowDB('localhost', 'test_blank', 'root', '');
-
-  
   
 
 // *******
-
 // INSERT
-
 // *******
 
 $table="shoes";
 
-  
-
 $parameters=Array(
-
-"brand" => "Lee",
-
-"price" => 543.23
-
+    "brand" => "Lee",
+    "price" => 543.23
 );
-
-  
 
 $result = $db->insert($table, $parameters);
 
-  
-
 if(empty($result)) echo  "Failed";
-
 else  echo  "Success! The inserted ID is ".$result;
 
   
   
   
-  
 
 // *******
-
 // DELETE
-
 // *******
 
 $table="shoes";
 
-  
-
 $conditions=Array(
-
-"id" => 2,
-
+    "id" => 2,
 );
 
-  
-
 if(!$db->delete($table, $conditions)) echo  "Failed";
-
 else  echo  "Success! The item is deleted";
 
   
   
   
-  
 
 // *******
-
 // UPDATE
-
 // *******
 
 $table="shoes";
 
-  
-
 $conditions = Array(
-
-"id" => 3,
-
+    "id" => 3,
 );
-
-  
 
 $parameters = Array(
-
-"brand" => "Puma",
-
+    "brand" => "Puma",
 );
 
-  
-
 if(!$db->update($table, $conditions, $parameters)) echo  "Failed";
-
 else  echo  "Success! The item is updated";
 
   
   
   
-  
-  
 
 // *******
-
 // SELECT
-
 // *******
 
 $table = "shoes";
 
-  
-
 $conditions = Array(
-
-"id" => 3,
-
+    "id" => 3,
 );
 
-  
-
 if(!$db->select($table, $conditions)) echo  "Failed";
-
 else {
+    echo  "Success!";
 
-echo  "Success!";
-
-  
-
-echo  "<div>Return Data: </div>";
-
-echo  "<ol>";
-
-foreach($db->multiData as $key=>$data){
-
-echo  "<li>".$data["brand"]."</li>";
-
+    echo  "<div>Return Data: </div>";
+    echo  "<ol>";
+    foreach($db->multiData as $key=>$data){
+        echo  "<li>".$data["brand"]."</li>";
+    }
+    echo  "</ol>";
 }
 
-echo  "</ol>";
-
-}
-
-  
-  
   
   
   
 
 // *******
-
 // SELECT USING RAW QUERY
-
 // *******
 
 $sql_query = "SELECT  *  FROM `shoes` ORDER BY `id` DESC";
 
-  
-
 if(!$db->query($sql_query)) echo  "Failed";
-
 else {
+    echo  "Success!";
 
-echo  "Success!";
-
-  
-
-echo  "<div>Return Data: </div>";
-
-echo  "<ol>";
-
-foreach($db->multiData as $key=>$data){
-
-echo  "<li>".$data["brand"]."</li>";
-
+    echo  "<div>Return Data: </div>";
+    echo  "<ol>";
+    foreach($db->multiData as $key=>$data){
+        echo  "<li>".$data["brand"]."</li>";
+    }
+    echo  "</ol>";
 }
 
-echo  "</ol>";
-
-}
-
-  
   
   
   
 
 // *******
-
 // OTHERS RAW QUERY
-
 // *******
 
 $sql_query = "INSERT INTO `shoes` (`brand`, `price`) VALUES ('Adidas', 432.43)";
 
-  
-
 if(!$db->query($sql_query)) echo  "Failed";
-
 else  echo  "Success!";
 
 ```
@@ -408,7 +309,7 @@ else  echo  "Success!";
 
 If you find this package helps you, kindly support me by donating some BNB (BSC) to the address below.
 
-`0x364d8eA5E7a4ce97e89f7b2cb7198d6d5DFe0aCe`.
+`0x364d8eA5E7a4ce97e89f7b2cb7198d6d5DFe0aCe`.&nbsp;
 <img src="https://info.souldoit.com/img/wallet-address-bnb-bsc.png" width="150">
 
   
