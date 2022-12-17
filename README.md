@@ -169,7 +169,6 @@ Enjoy!
 ## Example
 
   
-  
 
 ```php
 
@@ -199,7 +198,6 @@ else  echo  "Success! The inserted ID is ".$result;
 
   
   
-  
 
 // *******
 // DELETE
@@ -214,7 +212,6 @@ $conditions=Array(
 if(!$db->delete($table, $conditions)) echo  "Failed";
 else  echo  "Success! The item is deleted";
 
-  
   
   
 
@@ -235,7 +232,6 @@ $parameters = Array(
 if(!$db->update($table, $conditions, $parameters)) echo  "Failed";
 else  echo  "Success! The item is updated";
 
-  
   
   
 
@@ -263,7 +259,6 @@ else {
 
   
   
-  
 
 // *******
 // SELECT USING RAW QUERY
@@ -283,7 +278,6 @@ else {
     echo  "</ol>";
 }
 
-  
   
   
 
@@ -309,10 +303,9 @@ else  echo  "Success!";
 
 If you find this package helps you, kindly support me by donating some BNB (BSC) to the address below.
 
-`0x364d8eA5E7a4ce97e89f7b2cb7198d6d5DFe0aCe`.
-
 &nbsp;
-
+`0x364d8eA5E7a4ce97e89f7b2cb7198d6d5DFe0aCe`.
+&nbsp;
 <img src="https://info.souldoit.com/img/wallet-address-bnb-bsc.png" width="150">
 
   
