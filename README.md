@@ -310,7 +310,9 @@ else  echo  "Success!";
 If you find this package helps you, kindly support me by donating some BNB (BSC) to the address below.
 
 `0x364d8eA5E7a4ce97e89f7b2cb7198d6d5DFe0aCe`.
+
 &nbsp;
+
 <img src="https://info.souldoit.com/img/wallet-address-bnb-bsc.png" width="150">
 
   
