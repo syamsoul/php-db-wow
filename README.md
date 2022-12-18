@@ -13,32 +13,30 @@
   
   
   
+## Documentation, Installation and Usage Instructions
 
+See the [documentation](https://info.souldoit.com/projects/php-db-wow) for detailed installation and usage instructions.
+
+
+&nbsp;
+&nbsp;
+## Introduction
 This package will make your life easier in handling MySQL database.
-
-  
-  
   
 
 &nbsp;
 
 * [Requirement](#requirement)
-
 * [Installation](#installation)
-
 * [Usage & Reference](#usage--reference)
-
 * [How to use it?](#how-to-use-it)
-
 * [Example](#example)
 
   
   
 
 &nbsp;
-
 &nbsp;
-
 ## Requirement
 
   
@@ -49,9 +47,7 @@ This package will make your life easier in handling MySQL database.
   
 
 &nbsp;
-
 &nbsp;
-
 ## Installation
 
   
@@ -74,9 +70,7 @@ composer require syamsoul/php-db-wow
   
 
 &nbsp;
-
 &nbsp;
-
 ## Usage & Reference
 
   
@@ -86,7 +80,6 @@ composer require syamsoul/php-db-wow
   
 
 &nbsp;
-
 ### How to use it?
 
   
@@ -101,8 +94,6 @@ use SoulDoit\PhpDBWow\WowDB;
 
 &nbsp;
 
-  
-
 And then create a new WowDB instance:
 
 ```php
@@ -110,7 +101,6 @@ And then create a new WowDB instance:
 $db = new  WowDB($hostname, $db_name, $db_username, $db_password);
 
 ```
-
   
 
 Which is:
@@ -196,8 +186,6 @@ $result = $db->insert($table, $parameters);
 
 if(empty($result)) echo  "Failed";
 else  echo  "Success! The inserted ID is ".$result;
-
-  
   
   
 
@@ -214,8 +202,6 @@ $conditions=Array(
 if(!$db->delete($table, $conditions)) echo  "Failed";
 else  echo  "Success! The item is deleted";
 
-  
-  
   
 
 // *******
@@ -235,8 +221,6 @@ $parameters = Array(
 if(!$db->update($table, $conditions, $parameters)) echo  "Failed";
 else  echo  "Success! The item is updated";
 
-  
-  
   
 
 // *******
@@ -260,8 +244,6 @@ else {
     }
     echo  "</ol>";
 }
-
-  
   
   
 
@@ -283,8 +265,6 @@ else {
     echo  "</ol>";
 }
 
-  
-  
   
 
 // *******
