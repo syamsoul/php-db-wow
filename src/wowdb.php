@@ -1,4 +1,5 @@
 <?php 
+
 namespace SoulDoit\PhpDBWow;
 
 use SoulDoit\PhpDBWow\DBConfig;
@@ -171,5 +172,3 @@ class WowDB {
         $this->$var=$val;
     }
 }
-
-?>

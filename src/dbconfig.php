@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace SoulDoit\PhpDBWow;
 
 class DBConfig{
@@ -31,4 +32,3 @@ class DBConfig{
         ];
     }
 }
-?>
