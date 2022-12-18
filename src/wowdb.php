@@ -58,8 +58,17 @@ class WowDB {
         return false;
     }
 
-    public function select($table,$cond){
-        $query="SELECT * FROM $table ";
+    public function select($table, $cond, $cols=null){
+        $select_cols_raw = "";
+
+        if(!empty($cols)){
+            if(is_array($cols)){
+                foreach($cols as $col) $select_cols_raw .= "`$col`,";
+                $select_cols_raw = rtrim($select_cols_raw, ",");
+            }
+        }else $select_cols_raw = "*";
+
+        $query="SELECT $select_cols_raw FROM $table ";
 
         if (is_array($cond)){
             $i=0;
@@ -73,7 +82,7 @@ class WowDB {
         if($result){
             $this->numRows=mysqli_num_rows($result);
             if($this->numRows>0){
-                $this->singleData=mysqli_fetch_array($result);
+                $this->singleData=mysqli_fetch_assoc($result);
                 array_push($this->multiData,$this->singleData);
             }
             if($this->numRows>1){
