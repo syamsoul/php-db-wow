@@ -59,7 +59,7 @@ class WowDB {
         return false;
     }
 
-    public function select($table, $cond, $cols=null){
+    public function select($table, $cond=null, $cols=null){
         $select_cols_raw = "";
 
         if(!empty($cols)){
