@@ -84,7 +84,7 @@ composer require syamsoul/php-db-wow
 
   
 
-First, you must add this line to your Controller:
+First, you must add this line to your PHP file:
 
 ```php
 
@@ -94,7 +94,7 @@ use SoulDoit\PhpDBWow\DB;
 
 &nbsp;
 
-And then create a new WowDB instance:
+And then create a new DB instance:
 
 ```php
 
@@ -184,8 +184,8 @@ $parameters = [
 
 $result = $db->insert($table, $parameters);
 
-if($result === false) echo  "Failed";
-else  echo  "Success! The inserted ID is ".$result;
+if($result === false) echo "Failed";
+else echo "Success! The inserted ID is ".$result;
   
   
 
@@ -199,8 +199,8 @@ $conditions = [
     "id" => 2,
 ];
 
-if($db->delete($table, $conditions) === false) echo  "Failed";
-else  echo  "Success! The item is deleted";
+if($db->delete($table, $conditions) === false) echo "Failed";
+else echo "Success! The item is deleted";
 
   
 
@@ -218,8 +218,8 @@ $parameters = [
     "brand" => "Puma",
 ];
 
-if($db->update($table, $conditions, $parameters) === false) echo  "Failed";
-else  echo  "Success! The item is updated";
+if($db->update($table, $conditions, $parameters) === false) echo "Failed";
+else echo "Success! The item is updated";
 
   
 
@@ -235,10 +235,10 @@ $conditions = [
 
 $data = $db->select($table, $conditions)->first();
 
-if($data === false) echo  "Failed";
+if($data === false) echo "Failed";
 else {
-    echo  "Success! \n";
-    echo  "Return Data: " . $data['brand'];
+    echo "Success! \n";
+    echo "Return Data: " . $data['brand'];
 }
 
 
@@ -254,11 +254,11 @@ $conditions = [
 
 $data = $db->select($table, $conditions)->get();
 
-if($data === false) echo  "Failed";
+if($data === false) echo "Failed";
 else {
-    echo  "Success! \n\n";
+    echo "Success! \n\n";
 
-    echo  "Return Data: \n";
+    echo "Return Data: \n";
     foreach($data as $key => $each_data){
         echo $key . "=" . $each_data["brand"] . "\n";
     }
@@ -274,11 +274,11 @@ $raw_sql_query = "SELECT * FROM `shoes` ORDER BY `id` DESC";
 
 $query = $db->execute($raw_sql_query);
 
-if($query === false) echo  "Failed";
+if($query === false) echo "Failed";
 else {
-    echo  "Success! \n\n";
+    echo "Success! \n\n";
 
-    echo  "Return Data: \n";
+    echo "Return Data: \n";
     foreach($query->get() as $key => $each_data){
         echo $key . "=" . $each_data["brand"] . "\n";
     }
@@ -292,8 +292,8 @@ else {
 
 $raw_sql_query = "INSERT INTO `shoes` (`brand`, `price`) VALUES ('Adidas', 432.43)";
 
-if($db->execute($raw_sql_query) === false) echo  "Failed";
-else  echo  "Success!";
+if($db->execute($raw_sql_query) === false) echo "Failed";
+else echo "Success!";
 
 ```
 
