@@ -88,7 +88,7 @@ First, you must add this line to your Controller:
 
 ```php
 
-use SoulDoit\PhpDBWow\WowDB;
+use SoulDoit\PhpDBWow\DB;
 
 ```
 
@@ -98,7 +98,7 @@ And then create a new WowDB instance:
 
 ```php
 
-$db = new  WowDB($hostname, $db_name, $db_username, $db_password);
+$db = new DB($hostname, $db_name, $db_username, $db_password);
 
 ```
   
@@ -166,9 +166,9 @@ Enjoy!
 // Autoload files using the Composer autoloader.
 require_once  __DIR__  .  '/vendor/autoload.php';
 
-use SoulDoit\PhpDBWow\WowDB;
+use SoulDoit\PhpDBWow\DB;
 
-$db = new  WowDB('localhost', 'test_blank', 'root', '');
+$db = new DB('localhost', 'test_blank', 'root', '');
   
 
 // *******
@@ -177,14 +177,14 @@ $db = new  WowDB('localhost', 'test_blank', 'root', '');
 
 $table="shoes";
 
-$parameters=Array(
+$parameters = [
     "brand" => "Lee",
     "price" => 543.23
-);
+];
 
 $result = $db->insert($table, $parameters);
 
-if(empty($result)) echo  "Failed";
+if($result === false) echo  "Failed";
 else  echo  "Success! The inserted ID is ".$result;
   
   
@@ -195,11 +195,11 @@ else  echo  "Success! The inserted ID is ".$result;
 
 $table="shoes";
 
-$conditions=Array(
+$conditions = [
     "id" => 2,
-);
+];
 
-if(!$db->delete($table, $conditions)) echo  "Failed";
+if($db->delete($table, $conditions) === false) echo  "Failed";
 else  echo  "Success! The item is deleted";
 
   
@@ -210,39 +210,58 @@ else  echo  "Success! The item is deleted";
 
 $table="shoes";
 
-$conditions = Array(
+$conditions = [
     "id" => 3,
-);
+];
 
-$parameters = Array(
+$parameters = [
     "brand" => "Puma",
-);
+];
 
-if(!$db->update($table, $conditions, $parameters)) echo  "Failed";
+if($db->update($table, $conditions, $parameters) === false) echo  "Failed";
 else  echo  "Success! The item is updated";
 
   
 
 // *******
-// SELECT
+// SELECT SINGLE DATA
 // *******
 
 $table = "shoes";
 
-$conditions = Array(
+$conditions = [
     "id" => 3,
-);
+];
 
-if(!$db->select($table, $conditions)) echo  "Failed";
+$data = $db->select($table, $conditions)->first();
+
+if($data === false) echo  "Failed";
 else {
-    echo  "Success!";
+    echo  "Success! \n";
+    echo  "Return Data: " . $data['brand'];
+}
 
-    echo  "<div>Return Data: </div>";
-    echo  "<ol>";
-    foreach($db->multiData as $key=>$data){
-        echo  "<li>".$data["brand"]."</li>";
+
+// *******
+// SELECT MULTIPLE DATA
+// *******
+
+$table = "shoes";
+
+$conditions = [
+    "is_for_sale" => 1,
+];
+
+$data = $db->select($table, $conditions)->get();
+
+if($data === false) echo  "Failed";
+else {
+    echo  "Success! \n\n";
+
+    echo  "Return Data: \n";
+    foreach($data as $key => $each_data){
+        echo $key . "=" . $each_data["brand"] . "\n";
     }
-    echo  "</ol>";
 }
   
   
@@ -251,18 +270,18 @@ else {
 // SELECT USING RAW QUERY
 // *******
 
-$sql_query = "SELECT  *  FROM `shoes` ORDER BY `id` DESC";
+$raw_sql_query = "SELECT * FROM `shoes` ORDER BY `id` DESC";
 
-if(!$db->query($sql_query)) echo  "Failed";
+$query = $db->execute($raw_sql_query);
+
+if($query === false) echo  "Failed";
 else {
-    echo  "Success!";
+    echo  "Success! \n\n";
 
-    echo  "<div>Return Data: </div>";
-    echo  "<ol>";
-    foreach($db->multiData as $key=>$data){
-        echo  "<li>".$data["brand"]."</li>";
+    echo  "Return Data: \n";
+    foreach($query->get() as $key => $each_data){
+        echo $key . "=" . $each_data["brand"] . "\n";
     }
-    echo  "</ol>";
 }
 
   
@@ -271,9 +290,9 @@ else {
 // OTHERS RAW QUERY
 // *******
 
-$sql_query = "INSERT INTO `shoes` (`brand`, `price`) VALUES ('Adidas', 432.43)";
+$raw_sql_query = "INSERT INTO `shoes` (`brand`, `price`) VALUES ('Adidas', 432.43)";
 
-if(!$db->query($sql_query)) echo  "Failed";
+if($db->execute($raw_sql_query) === false) echo  "Failed";
 else  echo  "Success!";
 
 ```
