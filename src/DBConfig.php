@@ -2,7 +2,7 @@
 
 namespace SoulDoit\PhpDBWow;
 
-class DBConfig{
+class DBConfig {
     private static $hostname;
     private static $database;
     private static $username;
@@ -10,7 +10,8 @@ class DBConfig{
     
     private static $empty_config=true;
     
-    public static function setConfig($host, $db, $user, $pwd=''){
+    public static function setConfig($host, $db, $user, $pwd='')
+    {
         if(!empty($db) && !empty($host) && !empty($user)){
             self::$empty_config = false;
             
@@ -21,7 +22,8 @@ class DBConfig{
         }
     }
     
-    public static function getConfig(){
+    public static function getConfig()
+    {
         if(self::$empty_config == true) return false;
         
         return [
